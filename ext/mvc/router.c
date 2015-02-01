@@ -936,6 +936,7 @@ PHP_METHOD(Phalcon_Mvc_Router, handle){
 		if (phalcon_array_isset_string_fetch(&params_str, parts, SS("params"))) {
 			PHALCON_INIT_VAR(str_params);
 			phalcon_substr(str_params, params_str, 1, 0);
+			// zend_is_true returns false if params is 0
 			if (zend_is_true(str_params)) {
 				zval slash;
 				ZVAL_STRINGL(&slash, "/", 1, 0);
